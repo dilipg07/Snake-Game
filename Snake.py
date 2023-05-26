@@ -1,0 +1,20 @@
+from turtle import Turtle
+start_position = [(0,0),(-20,0),(-40,0)]
+move_distance = 20
+class Snake:
+    def __init__(self):
+        self.segment = []
+        self.create_snake()
+        
+    def create_snake(self):    
+        for pos in start_position:
+            new_square = Turtle('square')
+            new_square.color('white')
+            new_square.penup()
+            new_square.goto(pos)
+            self.segment.append(new_square)
+
+    def move(self):
+        for seg in range(len(self.segment)-1,0,-1):
+            self.segment[seg].goto(self.segment[seg-1].xcor(), self.segment[seg-1].ycor())
+        self.segment[0].forward(move_distance)
