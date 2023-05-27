@@ -13,7 +13,14 @@ class Snake:
             new_square.penup()
             new_square.goto(pos)
             self.segment.append(new_square)
-
+    
+    def create_seg(self):
+        new_seg = Turtle('square')
+        new_seg.color('white')
+        new_seg.penup()
+        new_seg.goto(self.segment[-1].xcor,self.segment[-1].ycor)
+        self.segment.append(new_seg)
+        
     def move(self):
         for seg in range(len(self.segment)-1,0,-1):
             self.segment[seg].goto(self.segment[seg-1].xcor(), self.segment[seg-1].ycor())
