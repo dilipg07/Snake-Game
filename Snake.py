@@ -8,19 +8,19 @@ class Snake:
         
     def create_snake(self):    
         for pos in start_position:
-            new_square = Turtle('square')
-            new_square.color('white')
-            new_square.penup()
-            new_square.goto(pos)
-            self.segment.append(new_square)
+            self.add_seg(pos)
+            
     
-    def create_seg(self):
-        new_seg = Turtle('square')
-        new_seg.color('white')
-        new_seg.penup()
-        new_seg.goto(self.segment[-1].xcor,self.segment[-1].ycor)
-        self.segment.append(new_seg)
-        
+    def add_seg(self, position):
+        new_square = Turtle('square')
+        new_square.color('white')
+        new_square.penup()
+        new_square.goto(position)
+        self.segment.append(new_square)
+
+    def extend(self):
+        self.add_seg(self.segment[-1].position())
+
     def move(self):
         for seg in range(len(self.segment)-1,0,-1):
             self.segment[seg].goto(self.segment[seg-1].xcor(), self.segment[seg-1].ycor())
