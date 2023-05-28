@@ -33,6 +33,10 @@ while game_on:
     if snake.segment[0].xcor() > 285 or snake.segment[0].xcor() < -285 or snake.segment[0].ycor() > 285 or snake.segment[0].ycor() < -285:
         game_on = False
         scoreboard.game_over()
-
+        print(snake.segment[0].position())
+    if snake.segment[0].position() in [x.position() for x in snake.segment[1:]]:
+        scoreboard.game_over()
+        game_on = False
         
+
 screen.exitonclick()
