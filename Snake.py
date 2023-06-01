@@ -37,4 +37,4 @@ class Snake:
             self.segment[0].seth(180)
     def right(self):
         if self.segment[0].heading() != 180:    
-            self.segment[0].seth(0)
+            self.segment[0].seth(0) 

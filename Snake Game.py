@@ -34,9 +34,14 @@ while game_on:
         game_on = False
         scoreboard.game_over()
         print(snake.segment[0].position())
-    if snake.segment[0].position() in [x.position() for x in snake.segment[1:]]:
-        scoreboard.game_over()
-        game_on = False
-        
+    # if snake.segment[0].position() in [x.position() for x in snake.segment[1:]]:
+    #     scoreboard.game_over()
+    #     game_on = False
+    for segment in snake.segment:
+        if segment == snake.segment[0]:
+            pass
+        elif snake.segment[0].distance(segment)<10:
+            game_on = False
+            scoreboard.game_over()
 
 screen.exitonclick()
