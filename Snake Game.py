@@ -31,17 +31,17 @@ while game_on:
         
     # detect collison with wall
     if snake.segment[0].xcor() > 285 or snake.segment[0].xcor() < -285 or snake.segment[0].ycor() > 285 or snake.segment[0].ycor() < -285:
-        game_on = False
-        scoreboard.game_over()
-        print(snake.segment[0].position())
+        scoreboard.reset_game()
+        snake.reset()
+        
     # if snake.segment[0].position() in [x.position() for x in snake.segment[1:]]:
-    #     scoreboard.game_over()
+    #     scoreboard.reset_game()
     #     game_on = False
     for segment in snake.segment:
         if segment == snake.segment[0]:
             pass
         elif snake.segment[0].distance(segment)<10:
-            game_on = False
-            scoreboard.game_over()
+            scoreboard.reset_game()
+            snake.reset()
 
-screen.exitonclick()
+screen.exitonclick() 
